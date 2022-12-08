@@ -4,8 +4,8 @@ import ChartBar from "./ChartBar";
 export default function Quality(props: any) {
   const result: any = props.result;
   return (
-    <div className="flex flex-col gap-10 m-10">
-      <div className="flex justify-between text-3xl">
+    <div className="flex flex-col gap-1 my-7 font-Montserrat">
+      <div className="flex justify-between text-3xl mx-4">
         <h1 className="">{result.category}</h1>
         <h1 className="">{Math.round(parseInt(result.score_out_of_10))}</h1>
       </div>
