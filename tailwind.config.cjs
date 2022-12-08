@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         Montserrat: "Montserrat",
         Baskerville: "Baskerville",
+        Inter: "Inter",
       },
     },
   },

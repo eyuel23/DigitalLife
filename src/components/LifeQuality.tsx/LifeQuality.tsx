@@ -8,29 +8,29 @@ export default function LifeQuality() {
   const [info, setInfo] = useState([]);
   const [header, setHeader] = useState("");
 
-  const categories: string[] = [];
-  const fetchData = async (url: string) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    const categories = data.categories;
+  //   const categories: string[] = [];
+  //   const fetchData = async (url: string) => {
+  //     const response = await fetch(url);
+  //     const data = await response.json();
+  //     const categories = data.categories;
 
-    const scores = categories.map((category: any) => {
-      return {
-        category: category.name,
-        score_out_of_10: category.score_out_of_10,
-      };
-    });
-    setHeader(data.summary);
-    setInfo(scores);
-    console.log(data);
-  };
+  //     const scores = categories.map((category: any) => {
+  //       return {
+  //         category: category.name,
+  //         score_out_of_10: category.score_out_of_10,
+  //       };
+  //     });
+  //     setHeader(data.summary);
+  //     setInfo(scores);
+  //     console.log(data);
+  //   };
 
-  useEffect(() => {
-    const search: string = result.toLowerCase().replace(/ /g, "-");
-    fetchData(
-      `https://api.teleport.org/api/urban_areas/slug:${search}/scores/`
-    );
-  }, [work]);
+  //   useEffect(() => {
+  //     const search: string = result.toLowerCase().replace(/ /g, "-");
+  //     fetchData(
+  //       `https://api.teleport.org/api/urban_areas/slug:${search}/scores/`
+  //     );
+  //   }, [work]);
   const resultHandler = (event: any) => {
     setResult(event.target.value);
     event.preventDefault();
@@ -51,7 +51,7 @@ export default function LifeQuality() {
             type="text"
             placeholder="    🔍 Search"
             onChange={resultHandler}
-          ></input>
+          />
           <button
             className="w-40 bg-green-500 h-20 rounded-3xl text-4xl text-white"
             type="submit"
@@ -62,7 +62,7 @@ export default function LifeQuality() {
         </form>
       </div>
 
-      <h1 className="text-3xl text-center w-3/4">
+      <h1 className="text-3xl text-center w-3/4 font-Montserrat">
         {header.replace(/<\/?[pb]>/g, "")}
       </h1>
       <div className=" flex gap-[40rem] justify-center items-center flex-[0_0_50%]">

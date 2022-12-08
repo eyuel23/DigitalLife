@@ -24,8 +24,8 @@ body {
   box-sizing: border-box;
 }
 .header {
-  background-image: url(./assets/nature-2.jpg);
-  background-size: cover;
+  background-image: url(./assets/nature-1.jpg);
+  background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 .navigation {
@@ -34,4 +34,7 @@ body {
     rgba(246, 246, 246, 0.67) 0%,
     rgba(246, 246, 246, 0.35) 100%
   );
+}
+.search {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
