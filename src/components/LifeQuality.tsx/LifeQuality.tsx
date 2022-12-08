@@ -40,21 +40,24 @@ export default function LifeQuality() {
   };
   return (
     <section className="min-h-screen flex flex-col justify-between items-center ">
-      <h1 className=" m-7 text-6xl self-start">Life Quality</h1>
-      <form>
-        <input
-          className="border-black border-2 w-96 h-16 rounded-xl"
-          type="text"
-          placeholder="Search"
-          onChange={resultHandler}
-        ></input>
-        <button type="submit" onClick={submitHandler}>
-          here
-        </button>
-      </form>
-      <div>
-        {info.map((result) => {
-          return <Quality result={result} />;
+      <div className="flex flex-col items-">
+        <h1 className=" m-7 text-6xl self-start">Life Quality</h1>
+        <form>
+          <input
+            className="border-black border-2 w-96 h-16 rounded-xl"
+            type="text"
+            placeholder="Search"
+            onChange={resultHandler}
+          ></input>
+          <button type="submit" onClick={submitHandler}>
+            here
+          </button>
+        </form>
+      </div>
+
+      <div className=" flex flex-wrap justify-center items-center flex-[0_0_50%]">
+        {info.map((result, index) => {
+          return <Quality key={index} result={result} />;
         })}
       </div>
     </section>
