@@ -1,7 +1,9 @@
-import React from "react";
 import Navigation from "./Navigation";
 import location from "../assets/location.svg";
-export default function Header() {
+// interface Props {
+//   onSearch: void;
+// }
+export default function Header(props: any) {
   return (
     <header className="min-h-[55rem] header flex flex-col justify-end items-center font-Montserrat ">
       <Navigation />
@@ -19,20 +21,28 @@ export default function Header() {
             Join The Community →
           </button>
         </div>
-        <div className="bg-white w-[90rem] h-32 my-7 rounded-xl flex justify-between items-center search">
+        <div className="bg-white w-[90rem] h-32 my-7 rounded-xl flex justify-between items-center search overflow-hidden">
           <div className="flex justify-between items-center w-1/2 text-2xl border-r-2 border-gray-300 h-full font-Inter px-5">
             <div className="flex items-center ">
-              <img src={location} alt="loaction icon" />
+              <img src={location} alt="location icon" />
               <h1 className="">Location</h1>
             </div>
             <h1 className="text-blue-500">Change City</h1>
           </div>
           <div className="w-1/2 h-full">
             <input
-              className="w-full h-full text-4xl rounded-xl"
+              className=" w-4/5  h-full text-4xl"
               type="text"
               placeholder="    🔍  Search around here"
+              onChange={props.onSearch}
             />
+            <button
+              className=" w-1/5 bg-green-500 h-full text-4xl text-white"
+              type="submit"
+              onClick={props.goHandler}
+            >
+              Go
+            </button>
           </div>
         </div>
       </div>
