@@ -1,4 +1,5 @@
 import LifeQualityInfo from "./LifeQualityInfo";
+import MostSearched from "./MostSearched";
 
 export default function LifeQuality(props: any) {
   const result: string = props.search;
@@ -6,7 +7,11 @@ export default function LifeQuality(props: any) {
 
   return (
     <section className="min-h-screen mt-10 flex flex-col justify-around items-center ">
-      <LifeQualityInfo search={result} work={work} />
+      {work ? (
+        <LifeQualityInfo search={result} work={work} />
+      ) : (
+        <MostSearched />
+      )}
     </section>
   );
 }
