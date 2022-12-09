@@ -5,11 +5,13 @@ import LifeQuality from "./components/LifeQuality.tsx/LifeQuality";
 function App() {
   const [search, setSearch] = useState("");
   const [work, setWork] = useState(false);
+  let value: string;
   const searchHandler = (event: any) => {
-    setSearch(event.target.value);
+    value = event.target.value;
     event.preventDefault();
   };
   const submitHandler = (event: any) => {
+    setSearch(value);
     setWork(!work);
     event.preventDefault();
   };

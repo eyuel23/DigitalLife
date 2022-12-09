@@ -1,9 +1,11 @@
 import Navigation from "./Navigation";
 import location from "../assets/location.svg";
+import SearchInput from "./SearchInput";
 // interface Props {
 //   onSearch: void;
 // }
 export default function Header(props: any) {
+  console.log("header");
   return (
     <header className="min-h-[55rem] header flex flex-col justify-end items-center font-Montserrat ">
       <Navigation />
@@ -29,21 +31,7 @@ export default function Header(props: any) {
             </div>
             <h1 className="text-blue-500">Change City</h1>
           </div>
-          <div className="w-1/2 h-full">
-            <input
-              className=" w-4/5  h-full text-4xl"
-              type="text"
-              placeholder="    🔍  Search around here"
-              onChange={props.onSearch}
-            />
-            <button
-              className=" w-1/5 bg-green-500 h-full text-4xl text-white"
-              type="submit"
-              onClick={props.goHandler}
-            >
-              Go
-            </button>
-          </div>
+          <SearchInput onSearch={props.onSearch} goHandler={props.goHandler} />
         </div>
       </div>
     </header>
