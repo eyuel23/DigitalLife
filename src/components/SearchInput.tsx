@@ -8,6 +8,7 @@ export default function SearchInput(props: any) {
         type="text"
         placeholder="    🔍  Search around here"
         onChange={props.onSearch}
+        onSubmit={props.goHandler}
       />
       <button
         className=" w-1/5 bg-green-500 h-full text-4xl text-white"

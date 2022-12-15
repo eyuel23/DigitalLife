@@ -12,7 +12,7 @@ function App() {
   };
   const submitHandler = (event: any) => {
     setSearch(value);
-    setWork(!work);
+    setWork(true);
     event.preventDefault();
   };
   return (

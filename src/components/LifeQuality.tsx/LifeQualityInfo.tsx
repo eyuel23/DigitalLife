@@ -27,11 +27,12 @@ export default function LifeQualityInfo(props: any) {
   };
 
   useEffect(() => {
-    const search: string = result.toLowerCase().replace(/ /g, "-");
+    const search: string = result.trim().toLowerCase().replace(/ /g, "-");
     fetchData(
       `https://api.teleport.org/api/urban_areas/slug:${search}/scores/`
     );
-  }, [work]);
+    console.log(search);
+  }, [work, result]);
   return (
     <>
       <div className="flex flex-col justify-between items-center gap-10">

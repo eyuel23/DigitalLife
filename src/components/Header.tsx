@@ -5,7 +5,6 @@ import SearchInput from "./SearchInput";
 //   onSearch: void;
 // }
 export default function Header(props: any) {
-  console.log("header");
   return (
     <header className="min-h-[55rem] header flex flex-col justify-end items-center font-Montserrat ">
       <Navigation />
