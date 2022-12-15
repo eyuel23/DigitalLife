@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Quality from "./Quality";
 import philly from "../../assets/philly.jpg";
+import { motion } from "framer-motion";
 
 export default function LifeQualityInfo(props: any) {
   const result: string = props.search;
@@ -27,14 +28,22 @@ export default function LifeQualityInfo(props: any) {
   };
 
   useEffect(() => {
-    const search: string = result.trim().toLowerCase().replace(/ /g, "-");
-    fetchData(
-      `https://api.teleport.org/api/urban_areas/slug:${search}/scores/`
-    );
-    console.log(search);
+    if (result === undefined) {
+      console.log("try again");
+    } else {
+      const search: string = result.trim().toLowerCase().replace(/ /g, "-");
+      fetchData(
+        `https://api.teleport.org/api/urban_areas/slug:${search}/scores/`
+      );
+      console.log(search);
+    }
   }, [work, result]);
   return (
-    <>
+    <motion.div
+      initial={{ x: "-100vw" }}
+      animate={{ x: 0 }}
+      transition={{ type: "spring", stiffness: 120 }}
+    >
       <div className="flex flex-col justify-between items-center gap-10">
         <img src={philly} alt="city image" className="w-[40rem] h-[30rem]" />
         <h1 className="text-3xl text-center w-3/4 font-Montserrat">
@@ -57,6 +66,6 @@ export default function LifeQualityInfo(props: any) {
           })}
         </div>
       </div>
-    </>
+    </motion.div>
   );
 }

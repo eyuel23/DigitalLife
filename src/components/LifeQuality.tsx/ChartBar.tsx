@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 const ChartBar = (props: any) => {
   const barFillHeight: string =
     Math.round((props.score_out_of_10 / 10) * 100) + "%";
@@ -5,10 +6,13 @@ const ChartBar = (props: any) => {
   return (
     <div className="h-full">
       <div className="h-[3rem] w-[36rem] border-2 border-black bg-white overflow:hidden flex rounded-2xl">
-        <div
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: barFillHeight }}
+          transition={{ delay: 0.2, duration: 1 }}
           className="bg-green-500 rounded-xl"
           style={{ width: barFillHeight }}
-        ></div>
+        ></motion.div>
       </div>
     </div>
   );

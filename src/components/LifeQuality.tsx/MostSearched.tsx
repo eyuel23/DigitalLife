@@ -1,12 +1,14 @@
 import React from "react";
 import philly from "../../assets/philly.jpg";
 import Cities from "./Cities";
+import Newyork from "../../assets/Newyork.jpeg";
+import chicago from "../../assets/chicago.jpg";
 
 export default function MostSearched() {
   const most = [
     { id: 1, name: "philadelphia", image: philly },
-    { id: 2, name: "New york", image: philly },
-    { id: 3, name: "Los angeles", image: philly },
+    { id: 2, name: "New york", image: Newyork },
+    { id: 3, name: "chicago", image: chicago },
     { id: 4, name: "Paris", image: philly },
     { id: 5, name: "Rome", image: philly },
     { id: 6, name: "philadelphia", image: philly },
