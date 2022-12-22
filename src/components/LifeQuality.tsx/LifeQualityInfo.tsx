@@ -56,7 +56,7 @@ export default function LifeQualityInfo(props: any) {
           {header.replace(/<\/?[pb]>/g, "")}
         </h1>
       </div>
-      <div className=" flex gap-[40rem] justify-center items-center flex-[0_0_50%]">
+      <div className=" flex flex-col  justify-center items-center flex-[0_0_50%] xs:flex-row xs:gap-[40rem]">
         <div>
           {info.map((result, index) => {
             if (index < 5) {

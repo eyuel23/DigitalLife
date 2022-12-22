@@ -11,6 +11,9 @@ module.exports = {
         Baskerville: "Baskerville",
         Inter: "Inter",
       },
+      screens: {
+        xs: "475px",
+      },
     },
   },
   plugins: [],

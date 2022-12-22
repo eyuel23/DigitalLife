@@ -7,7 +7,7 @@ export default function Navigation() {
         Digital<span className="text-green-500">Life</span>
       </h1>
       <nav>
-        <ul className="flex justify-between m-4 text-2xl items-center">
+        <ul className="hidden justify-between m-4 text-2xl items-center xs:flex ">
           <li className="m-2 mx-8">Home</li>
           <li className="m-2 mx-8"> About us</li>
           <li className="m-2 mx-8">Services</li>

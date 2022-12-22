@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SearchInput(props: any) {
   return (
-    <form className="w-1/2 h-full" onSubmit={props.goHandler}>
+    <form className="w-full xs:w-1/2 h-full" onSubmit={props.goHandler}>
       <input
         className=" w-4/5  h-full text-4xl"
         type="text"
