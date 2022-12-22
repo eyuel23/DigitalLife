@@ -28,15 +28,21 @@ export default function LifeQualityInfo(props: any) {
   };
 
   useEffect(() => {
-    if (result === undefined) {
-      console.log("try again");
-    } else {
-      const search: string = result.trim().toLowerCase().replace(/ /g, "-");
-      fetchData(
-        `https://api.teleport.org/api/urban_areas/slug:${search}/scores/`
-      );
-      console.log(search);
+    let unsub = false;
+    if (!unsub) {
+      if (result === undefined) {
+        console.log("try again");
+      } else {
+        const search: string = result.trim().toLowerCase().replace(/ /g, "-");
+        fetchData(
+          `https://api.teleport.org/api/urban_areas/slug:${search}/scores/`
+        );
+        console.log(search);
+      }
     }
+    return () => {
+      unsub = true;
+    };
   }, [result]);
   return (
     <motion.div
