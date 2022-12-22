@@ -15,10 +15,16 @@ function App() {
     setWork(true);
     event.preventDefault();
   };
+  const mostSearchedHandler = (e: any): void => {
+    e.preventDefault();
+    const value = e.target.alt;
+    setSearch(value);
+    setWork(true);
+  };
   return (
     <div>
       <Header onSearch={searchHandler} goHandler={submitHandler} />
-      <LifeQuality search={search} work={work} />
+      <LifeQuality search={search} work={work} onClick={mostSearchedHandler} />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import Cities from "./Cities";
 import Newyork from "../../assets/Newyork.jpeg";
 import chicago from "../../assets/chicago.jpg";
 
-export default function MostSearched() {
+export default function MostSearched(props: any) {
   const most = [
     { id: 1, name: "philadelphia", image: philly },
     { id: 2, name: "New york", image: Newyork },
@@ -21,7 +21,15 @@ export default function MostSearched() {
       <h1 className="text-5xl">Most Searched Cities</h1>
       <div className="flex flex-wrap gap-20 justify-center">
         {most.map((city) => {
-          return <Cities key={city.id} image={city.image} name={city.name} />;
+          return (
+            <Cities
+              onClick={props.onClick}
+              key={city.id}
+              image={city.image}
+              name={city.name}
+              alt={city.name}
+            />
+          );
         })}
       </div>
     </div>

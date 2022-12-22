@@ -37,7 +37,7 @@ export default function LifeQualityInfo(props: any) {
       );
       console.log(search);
     }
-  }, [work, result]);
+  }, [result]);
   return (
     <motion.div
       initial={{ x: "-100vw" }}
