@@ -33,6 +33,7 @@ export default function LifeQualityInfo(props: any) {
       if (result === undefined) {
         console.log("try again");
       } else {
+        // remove br too
         const search: string = result.trim().toLowerCase().replace(/ /g, "-");
         fetchData(
           `https://api.teleport.org/api/urban_areas/slug:${search}/scores/`
@@ -53,7 +54,7 @@ export default function LifeQualityInfo(props: any) {
       <div className="flex flex-col justify-between items-center gap-10">
         <img src={philly} alt="city image" className="w-[40rem] h-[30rem]" />
         <h1 className="text-3xl text-center w-3/4 font-Montserrat">
-          {header.replace(/<\/?[pb]>/g, "")}
+          {header.replace(/<[^>]*>/g, "")}
         </h1>
       </div>
       <div className=" flex flex-col  justify-center items-center flex-[0_0_50%] xs:flex-row xs:gap-[40rem]">
