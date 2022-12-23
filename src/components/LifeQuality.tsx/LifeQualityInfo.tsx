@@ -4,13 +4,14 @@ import { useState } from "react";
 import Quality from "./Quality";
 import philly from "../../assets/philly.jpg";
 import { motion } from "framer-motion";
-
+import ErrorModal from "./ErrorModal";
 export default function LifeQualityInfo(props: any) {
   const result: string = props.search;
   const work: boolean = props.work;
   const [info, setInfo] = useState([]);
   const [header, setHeader] = useState("");
   const categories: string[] = [];
+  const [error, setError] = useState(false);
   const fetchData = async (url: string) => {
     const response = await fetch(url);
     const data = await response.json();
@@ -31,6 +32,7 @@ export default function LifeQualityInfo(props: any) {
     let unsub = false;
     if (!unsub) {
       if (result === undefined) {
+        setError(true);
         console.log("try again");
       } else {
         // remove br too
@@ -39,6 +41,7 @@ export default function LifeQualityInfo(props: any) {
           `https://api.teleport.org/api/urban_areas/slug:${search}/scores/`
         );
         console.log(search);
+        setError(false);
       }
     }
     return () => {
@@ -46,33 +49,43 @@ export default function LifeQualityInfo(props: any) {
     };
   }, [result]);
   return (
-    <motion.div
-      initial={{ x: "-100vw" }}
-      animate={{ x: 0 }}
-      transition={{ type: "spring", stiffness: 120 }}
-    >
-      <div className="flex flex-col justify-between items-center gap-10">
-        <img src={philly} alt="city image" className="w-[40rem] h-[30rem]" />
-        <h1 className="text-3xl text-center w-3/4 font-Montserrat">
-          {header.replace(/<[^>]*>/g, "")}
-        </h1>
-      </div>
-      <div className=" flex flex-col  justify-center items-center flex-[0_0_50%] xs:flex-row xs:gap-[40rem]">
-        <div>
-          {info.map((result, index) => {
-            if (index < 5) {
-              return <Quality key={index} result={result} />;
-            }
-          })}
-        </div>
-        <div>
-          {info.map((result, index) => {
-            if (5 < index && index < 11) {
-              return <Quality key={index} result={result} />;
-            }
-          })}
-        </div>
-      </div>
-    </motion.div>
+    <>
+      {error ? (
+        <ErrorModal />
+      ) : (
+        <motion.div
+          initial={{ x: "-100vw" }}
+          animate={{ x: 0 }}
+          transition={{ type: "spring", stiffness: 120 }}
+        >
+          <div className="flex flex-col justify-between items-center gap-10 ">
+            <img
+              src={philly}
+              alt="city image"
+              className="w-[40rem] h-[30rem] shadow-lg border-2 border-black"
+            />
+            <h1 className="text-3xl text-center w-3/4 font-Montserrat">
+              {header.replace(/<[^>]*>/g, "")}
+            </h1>
+          </div>
+          <div className=" flex flex-col  justify-center items-center flex-[0_0_50%] xs:flex-row xs:gap-[40rem]">
+            <div>
+              {info.map((result, index) => {
+                if (index < 5) {
+                  return <Quality key={index} result={result} />;
+                }
+              })}
+            </div>
+            <div>
+              {info.map((result, index) => {
+                if (5 < index && index < 11) {
+                  return <Quality key={index} result={result} />;
+                }
+              })}
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </>
   );
 }
