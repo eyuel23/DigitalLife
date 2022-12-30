@@ -11,7 +11,7 @@
 </p>
 <p align="center">
   <a href="https://digitallife52.netlify.app/" target="_blank">
-    <img src="https://raw.githubusercontent.com/eyuel23/Portfolio-v1/main/src/assets/nature-2.jpg" alt="vercel status"  width="300"/>
+    <img src="https://raw.githubusercontent.com/eyuel23/DigitalLife/main/src/assets/nature-2.jpg" alt="vercel status"  width="300"/>
   </a>
 </p>
 # Getting Started with Create React App
