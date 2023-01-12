@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Quality from "./Quality";
-import philly from "../../assets/philly.jpg";
+import Newyork from "../../assets/Newyork.jpg";
 import { motion } from "framer-motion";
 import ErrorModal from "./ErrorModal";
 export default function LifeQualityInfo(props: any) {
@@ -60,7 +60,7 @@ export default function LifeQualityInfo(props: any) {
         >
           <div className="flex flex-col justify-between items-center gap-10 ">
             <img
-              src={philly}
+              src={Newyork}
               alt="city image"
               className="w-[40rem] h-[30rem] shadow-lg border-2 border-black"
             />
