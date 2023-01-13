@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Quality from "./Quality";
@@ -12,6 +12,7 @@ export default function LifeQualityInfo(props: any) {
   const [header, setHeader] = useState("");
   const categories: string[] = [];
   const [error, setError] = useState(false);
+  const dummy: any = useRef();
   const fetchData = async (url: string) => {
     const response = await fetch(url);
     const data = await response.json();
@@ -26,6 +27,7 @@ export default function LifeQualityInfo(props: any) {
     setHeader(data.summary);
     setInfo(scores);
     console.log(data);
+    dummy.current.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -57,18 +59,22 @@ export default function LifeQualityInfo(props: any) {
           initial={{ x: "-100vw" }}
           animate={{ x: 0 }}
           transition={{ type: "spring", stiffness: 120 }}
+          className="flex"
+          ref={dummy}
         >
-          <div className="flex flex-col justify-between items-center gap-10 ">
+          <div className="flex flex-col  gap-10 ">
             <img
               src={Newyork}
               alt="city image"
-              className="w-[40rem] h-[30rem] shadow-lg border-2 border-black"
+              className="w-full h-[55rem] shadow-lg border-2 border-black "
             />
-            <h1 className="text-3xl text-center w-3/4 font-Montserrat">
+            <h1 className="text-5xl font-medium ">{result}</h1>
+            <h1 className="text-3xl  w-3/4 font-Montserrat">
               {header.replace(/<[^>]*>/g, "")}
             </h1>
           </div>
-          <div className=" flex flex-col  justify-center items-center flex-[0_0_50%] xs:flex-row xs:gap-[40rem]">
+          <div className=" flex flex-col  justify-center items-center flex-[0_0_50%] xs:flex-col ">
+            <h1 className="text-7xl mb-5">Quality</h1>
             <div>
               {info.map((result, index) => {
                 if (index < 5) {

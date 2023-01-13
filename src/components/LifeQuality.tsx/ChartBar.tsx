@@ -5,7 +5,7 @@ const ChartBar = (props: any) => {
 
   return (
     <div className="h-full">
-      <div className="h-[3rem] w-[36rem] border-2 border-black bg-white overflow:hidden flex rounded-2xl">
+      <div className="h-[2rem] w-[36rem] border-2 border-black bg-white overflow:hidden flex rounded-2xl">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: barFillHeight }}
