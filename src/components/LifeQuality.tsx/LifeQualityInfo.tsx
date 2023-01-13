@@ -14,20 +14,23 @@ export default function LifeQualityInfo(props: any) {
   const [error, setError] = useState(false);
   const dummy: any = useRef();
   const fetchData = async (url: string) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    const categories = data.categories;
-
-    const scores = categories.map((category: any) => {
-      return {
-        category: category.name,
-        score_out_of_10: category.score_out_of_10,
-      };
-    });
-    setHeader(data.summary);
-    setInfo(scores);
-    console.log(data);
-    dummy.current.scrollIntoView({ behavior: "smooth" });
+    // try {
+    //   const response = await fetch(url);
+    //   const data = await response.json();
+    //   const categories = data.categories;
+    //   const scores = categories.map((category: any) => {
+    //     return {
+    //       category: category.name,
+    //       score_out_of_10: category.score_out_of_10,
+    //     };
+    //   });
+    //   setHeader(data.summary);
+    //   setInfo(scores);
+    //   console.log(data);
+    // } catch {
+    //   setError(true);
+    // }
+    // dummy.current.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -59,16 +62,18 @@ export default function LifeQualityInfo(props: any) {
           initial={{ x: "-100vw" }}
           animate={{ x: 0 }}
           transition={{ type: "spring", stiffness: 120 }}
-          className="flex pb-20 flex-col sm:flex-row"
+          className="flex pb-20 flex-col sm:flex-row sm:gap-0 gap-20"
           ref={dummy}
         >
-          <div className="flex flex-col  gap-10 ">
+          <div className="flex flex-col text-center sm:text-start sm:items-start items-center  gap-10 ">
             <img
               src={Newyork}
               alt="city image"
-              className="w-full h-[55rem] shadow-lg border-2 border-black "
+              className=" w-4/5 h-[50rem] shadow-x "
             />
-            <h1 className="text-5xl font-medium ">{result}</h1>
+            <h1 className="text-5xl font-medium ">
+              {result.toLocaleUpperCase()}
+            </h1>
             <h1 className="text-3xl  w-full font-Montserrat">
               {header.replace(/<[^>]*>/g, "")}
             </h1>

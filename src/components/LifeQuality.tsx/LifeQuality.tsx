@@ -7,7 +7,7 @@ export default function LifeQuality(props: any) {
   let work: boolean = props.work;
 
   return (
-    <section className="min-h-screen mt-10 flex flex-col justify-around items-center relative ">
+    <section className="min-h-screen mt-10 flex flex-col justify-around items-center relative bg-[#FDFFFF] ">
       {work ? (
         <LifeQualityInfo search={result} work={work} />
       ) : (

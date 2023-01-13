@@ -10,7 +10,7 @@ const ChartBar = (props: any) => {
           initial={{ width: 0 }}
           whileInView={{ width: barFillHeight }}
           transition={{ delay: 0.2, duration: 1 }}
-          className="bg-green-500 rounded-xl"
+          className="bg-blue-900 rounded-xl"
           style={{ width: barFillHeight }}
         ></motion.div>
       </div>
