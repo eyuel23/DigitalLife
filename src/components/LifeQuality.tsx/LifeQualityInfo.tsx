@@ -59,7 +59,7 @@ export default function LifeQualityInfo(props: any) {
           initial={{ x: "-100vw" }}
           animate={{ x: 0 }}
           transition={{ type: "spring", stiffness: 120 }}
-          className="flex"
+          className="flex pb-20 flex-col sm:flex-row"
           ref={dummy}
         >
           <div className="flex flex-col  gap-10 ">
@@ -69,7 +69,7 @@ export default function LifeQualityInfo(props: any) {
               className="w-full h-[55rem] shadow-lg border-2 border-black "
             />
             <h1 className="text-5xl font-medium ">{result}</h1>
-            <h1 className="text-3xl  w-3/4 font-Montserrat">
+            <h1 className="text-3xl  w-full font-Montserrat">
               {header.replace(/<[^>]*>/g, "")}
             </h1>
           </div>
