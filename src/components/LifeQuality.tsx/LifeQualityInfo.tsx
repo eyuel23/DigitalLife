@@ -14,23 +14,25 @@ export default function LifeQualityInfo(props: any) {
   const [error, setError] = useState(false);
   const dummy: any = useRef();
   const fetchData = async (url: string) => {
-    // try {
-    //   const response = await fetch(url);
-    //   const data = await response.json();
-    //   const categories = data.categories;
-    //   const scores = categories.map((category: any) => {
-    //     return {
-    //       category: category.name,
-    //       score_out_of_10: category.score_out_of_10,
-    //     };
-    //   });
-    //   setHeader(data.summary);
-    //   setInfo(scores);
-    //   console.log(data);
-    // } catch {
-    //   setError(true);
-    // }
-    // dummy.current.scrollIntoView({ behavior: "smooth" });
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const categories = data.categories;
+
+      const scores = categories.map((category: any) => {
+        return {
+          category: category.name,
+          score_out_of_10: category.score_out_of_10,
+        };
+      });
+      setHeader(data.summary);
+      setInfo(scores);
+      console.log(data);
+      setError(false);
+    } catch {
+      setError(true);
+    }
+    dummy.current.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -46,7 +48,6 @@ export default function LifeQualityInfo(props: any) {
           `https://api.teleport.org/api/urban_areas/slug:${search}/scores/`
         );
         console.log(search);
-        setError(false);
       }
     }
     return () => {
