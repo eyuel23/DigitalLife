@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import Quality from "./Quality";
-import Newyork from "../../assets/Newyork.jpg";
+import Newyork from "../../assets/Newyork.jpeg";
 import { motion } from "framer-motion";
 import ErrorModal from "./ErrorModal";
 export default function LifeQualityInfo(props: any) {
